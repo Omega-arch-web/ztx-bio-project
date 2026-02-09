@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZTX-BIO | Quantum-Secured Bio-Digital Framework</title>
+
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #9b59b6;
+            --light: #ecf0f1;
+            --dark: #34495e;
+            --success: #2ecc71;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--dark));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .lab-badge {
+            background-color: var(--accent);
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            display: inline-block;
+            margin: 1.5rem 0;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .quantum-pattern {
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 20% 20%, rgba(155, 89, 182, 0.15), transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(52, 152, 219, 0.15), transparent 50%);
+            z-index: 1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .card::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--secondary), var(--accent));
+        }
+
+        h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 2.2rem;
+            position: relative;
+        }
+
+        h2::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(to right, var(--secondary), var(--accent));
+        }
+
+        .metadata {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .meta-item {
+            flex: 1 1 200px;
+        }
+
+        .meta-label {
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .meta-value {
+            background-color: var(--light);
+            padding: 0.8rem;
+            border-radius: 8px;
+            font-weight: 500;
+        }
+
+        .description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .diagram-container {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .diagram {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .diagram-caption {
+            margin-top: 1rem;
+            font-style: italic;
+            color: #666;
+        }
+
+        .contributor {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            background: linear-gradient(to right, rgba(236,240,241,0.6), transparent);
+            padding: 1.5rem;
+            border-radius: 10px;
+            flex-wrap: wrap;
+        }
+
+        .contributor-name {
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: var(--primary);
+        }
+
+        .contributor-role {
+            color: var(--dark);
+            margin: 0.3rem 0;
+        }
+
+        .contributor-id {
+            font-family: monospace;
+            background-color: var(--light);
+            padding: 0.3rem 0.8rem;
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+
+        .btn {
+            padding: 0.8rem 1.8rem;
+            background: linear-gradient(to right, var(--secondary), var(--accent));
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(52,152,219,0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(52,152,219,0.4);
+        }
+
+        footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 3rem 0 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 2rem;
+        }
+
+        .copyright {
+            margin-top: 2rem;
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .subtitle { font-size: 1.2rem; }
+            .card { padding: 1.5rem; }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="quantum-pattern"></div>
+    <div class="header-content">
+        <h1>ZTX-BIO</h1>
+        <div class="subtitle">A Bio-Digital Framework for Quantum-Secured Human–Machine Interfaces</div>
+        <div class="lab-badge">Noah's Ark Quantum Tech Lab</div>
+    </div>
+</header>
+
+<div class="container">
+
+    <div class="card">
+        <div class="metadata">
+            <div class="meta-item">
+                <span class="meta-label">Date</span>
+                <div class="meta-value">2025-09-12</div>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Type</span>
+                <div class="meta-value">Research Protocol | Conceptualization</div>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Language</span>
+                <div class="meta-value">English</div>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Country</span>
+                <div class="meta-value">United States</div>
+            </div>
+        </div>
+
+        <h2>Description</h2>
+        <p class="description">
+            ZTX-BIO is a pioneering bio-inspired framework enabling secure bidirectional interaction
+            between biological signals and digital systems using quantum-safe protocols.
+        </p>
+
+        <div class="diagram-container">
+            <img src="https://via.placeholder.com/800x400?text=ZTX-BIO+Framework+Diagram"
+                 alt="ZTX-BIO Framework Diagram" class="diagram">
+            <div class="diagram-caption">Conceptual diagram of the ZTX-BIO framework</div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Contributor</h2>
+        <div class="contributor">
+            <div>
+                <div class="contributor-name">NOAH KOUADRI KHAZAR</div>
+                <div class="contributor-role">Principal Researcher & Conceptualization</div>
+                <div class="contributor-id">ORCID: 0009-0001-5332-9083</div>
+            </div>
+            <a class="btn" target="_blank"
+               href="https://www.linkedin.com/in/noah-kouadrihazar-164ba2315/">LinkedIn</a>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <div class="footer-content">
+        <div class="lab-badge">Noah's Ark Quantum Tech Lab</div>
+        <p>Advancing quantum-secured bio-digital interfaces</p>
+        <div class="copyright">
+            © 2025 Noah's Ark Quantum Tech Lab
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
